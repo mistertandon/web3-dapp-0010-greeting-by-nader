@@ -1,8 +1,8 @@
-//SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: MIT
 pragma solidity >=0.5.0 <0.9.0;
 
-contract chai{
-    struct Memo{
+contract chai {
+    struct Memo {
         string name;
         string message;
         uint timestamp;
@@ -12,17 +12,17 @@ contract chai{
     Memo[] memos;
     address payable owner;
 
-    constructor(){
+    constructor() {
         owner = payable(msg.sender);
     }
 
-    function buyChai(string memory name, string memory message) public payable{
-        require(msg.value>0, "Please pay greater then 0");
+    function buyChai(string memory name, string memory message) public payable {
+        require(msg.value > 0, "Please pay greater then 0");
         owner.transfer(msg.value);
-        memos.push(Memo(name, message,block.timestamp, msg.sender));
+        memos.push(Memo(name, message, block.timestamp, msg.sender));
     }
 
-    function getMemos() public view returns(Memo[] memory) {
+    function getMemos() public view returns (Memo[] memory) {
         return memos;
     }
 }

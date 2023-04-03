@@ -21,7 +21,7 @@ async function consoleMemos(memos) {
   for (const memoRef of memos) {
     const { name, message, timestamp, from } = memoRef;
     console.log(
-      `name: ${name}, message: ${message}, timestamp: ${timestamp}, from :${from}`
+      `name: ${name}, message: ${message}, \ntimestamp: ${timestamp}, \nfrom :${from}`
     );
   }
 }
