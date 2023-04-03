@@ -1,22 +1,24 @@
 {
   "name": "web3-dapp-0010-greeting-by-nader",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "sass": "^1.60.0"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mistertandon/web3-dapp-0010-greeting-by-nader.git"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mistertandon/web3-dapp-0010-greeting-by-nader/issues"
+  },
+  "homepage": "https://github.com/mistertandon/web3-dapp-0010-greeting-by-nader#readme",
   "devDependencies": {
-    "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
-    "@vitejs/plugin-react": "^3.1.0",
-    "vite": "^4.2.0"
+    "@nomicfoundation/hardhat-toolbox": "^2.0.2",
+    "hardhat": "^2.13.0"
   }
 }
