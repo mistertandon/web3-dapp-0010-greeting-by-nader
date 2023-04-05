@@ -1,4 +1,3 @@
-
 /* 
  * 1. Define the fonts
  * 2. Define the colors
@@ -93,6 +92,18 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+input,
+textarea {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
 }
 
 /* 2. Define the colors */

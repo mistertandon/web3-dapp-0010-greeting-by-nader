@@ -1,0 +1,67 @@
+.buychai--container {
+  .form__div--container {
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    min-width: 400px;
+    max-width: 450px;
+
+    > form {
+      width: 100%;
+    }
+  }
+
+  .form__field--container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    width: calc(100% - 20px);
+    margin: 0px auto 10px;
+  }
+
+  .form__field__input--label {
+    font-size: 16px;
+    line-height: 24px;
+    color: #787878;
+  }
+
+  .form__field__input {
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    height: 32px;
+    width: 100%;
+    padding: 0 10px;
+
+    &:focus {
+      outline: #e5e5e5;
+    }
+  }
+
+  .form__field__textarea {
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px 10px;
+
+    &:focus {
+      outline: #e5e5e5;
+    }
+  }
+
+  .form__field__button--submit {
+    height: 50px;
+    width: calc(100% - 20px);
+    margin: 0px auto;
+    border-radius: 25px;
+
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
