@@ -1,13 +1,13 @@
 import { useContext } from "react";
 import "./index.scss";
 import "./App.scss";
-import { ChaiContext } from "./contexts/ChaiProvider.jsx";
+import { WalletContext } from "./contexts/WalletProvider.jsx";
 
 import { BuyChai } from "./components/BuyChai/BuyChai.jsx";
 import { Donation } from "./components/Donation/Donation.jsx";
 
 function App() {
-  const { checkUserLoginStatus, connectWallet } = useContext(ChaiContext);
+  const { connectWallet, checkUserLoginStatus } = useContext(WalletContext);
 
   const userLoginStatus = checkUserLoginStatus();
 

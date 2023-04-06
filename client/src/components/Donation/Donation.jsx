@@ -1,13 +1,12 @@
 import { useEffect, useContext } from "react";
 import "./Donation.scss";
 import { ChaiContext } from "../../contexts/ChaiProvider";
+import { WalletContext } from "../../contexts/WalletProvider";
 
 export const Donation = () => {
-  const {
-    donationList,
-    fetchDonationsList,
-    checkUserLoginStatus,
-  } = useContext(ChaiContext);
+  const { donationList, fetchDonationsList } = useContext(ChaiContext);
+
+  const { checkUserLoginStatus } = useContext(WalletContext);
 
   useEffect(() => {
     const userLoginStatus = checkUserLoginStatus();
