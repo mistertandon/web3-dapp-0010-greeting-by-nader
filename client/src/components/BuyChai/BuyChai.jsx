@@ -1,10 +1,15 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { ethers } from "ethers";
+import { ChaiContext } from "../../contexts/ChaiProvider";
+
 import "./BuyChai.scss";
 
-export const BuyChai = ({
-  chaiContractInst: { provider, signer, chaiContract },
-}) => {
+export const BuyChai = () => {
+  const {
+    state: { chaiContract },
+  } = useContext(ChaiContext);
+
   const {
     register,
     handleSubmit,

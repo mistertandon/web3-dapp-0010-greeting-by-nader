@@ -1,54 +1,24 @@
-import { useEffect, useState } from "react";
-import { ethers } from "ethers";
-import chai from "./contract/chai.json";
+import { useContext } from "react";
 import "./index.scss";
 import "./App.scss";
-
-const VITE_CHAI_CONTRACT_ADDRESS = import.meta.env.VITE_CHAI_CONTRACT_ADDRESS;
+import { ChaiContext } from "./contexts/ChaiProvider.jsx";
 
 import { BuyChai } from "./components/BuyChai/BuyChai.jsx";
 import { Memos } from "./components/Memos/Memos.jsx";
 
 function App() {
-  const [state, setState] = useState({
-    provider: null,
-    signer: null,
-    chaiContract: null,
-  });
+  const { checkUserLoginStatus, connectWallet } = useContext(ChaiContext);
 
-  useEffect(() => {
-    const connectWallet = async () => {
-      if (window.ethereum) {
-        try {
-          const { ethereum } = window;
+  const userLoginStatus = checkUserLoginStatus();
 
-          const account = await ethereum.request({
-            method: "eth_requestAccounts",
-          });
-
-          const web3Provider = new ethers.providers.Web3Provider(ethereum);
-          const signer = web3Provider.getSigner();
-          const chaiContract = new ethers.Contract(
-            VITE_CHAI_CONTRACT_ADDRESS,
-            chai.abi,
-            signer
-          );
-
-          setState({ provider: web3Provider, signer, chaiContract });
-        } catch (error) {
-          console.log("Error", error);
-        }
-      }
-    };
-    connectWallet();
-  }, []);
-  console.log("state", state);
   return (
     <div className="app--conatiner">
       <h1 className="a">Get started with chaipilao Dapp</h1>
-      
-      {/* {state.chaiContract && <BuyChai chaiContractInst={state} />} */}
-      {state.chaiContract && <Memos chaiContractInst={state} />}
+      {!userLoginStatus && (
+        <button onClick={() => connectWallet()}>Connect wallet</button>
+      )}
+      <BuyChai />
+      <Memos />
     </div>
   );
 }

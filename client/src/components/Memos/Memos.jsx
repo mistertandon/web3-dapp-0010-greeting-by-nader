@@ -1,35 +1,23 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useContext } from "react";
 import "./Memos.scss";
+import { ChaiContext } from "../../contexts/ChaiProvider";
 
-export const Memos = ({
-  chaiContractInst: { provider, signer, chaiContract },
-}) => {
-  const [memos, setMemos] = useState([]);
-
-  const getMemosCallback = async () => {
-    console.log("getMemosCallback get callded");
-    const memosList = await chaiContract.getMemos();
-    setMemos(memosList);
-    console.log("memos", memos);
-  };
+export const Memos = () => {
+  const {
+    donationList: memos,
+    fetchDonationsList,
+    checkUserLoginStatus,
+  } = useContext(ChaiContext);
 
   useEffect(() => {
-    const getMemos = async () => {
-      const memosList = await chaiContract.getMemos();
-      setMemos(memosList);
-      console.log("memos", memos);
-    };
-    try {
-      getMemos();
-    } catch (error) {
-      console.error(error);
-    }
+    const userLoginStatus = checkUserLoginStatus();
+    if (userLoginStatus) fetchDonationsList();
   }, []);
 
   return (
     <section className="memos--container">
       <h4>Memo list</h4>
-      <button onClick={() => getMemosCallback()}>fetch memos</button>
+      <button onClick={() => fetchDonationsList()}>fetch memos</button>
       <section className="memos-record--container">
         <div className="memos-record__thead--row">
           <div className="memos-record__thead-row--th">Name</div>
@@ -40,11 +28,13 @@ export const Memos = ({
           return (
             <div
               className="memos-record__tbody--row"
-              key={sender_address}
+              key={`${sender_address}_${index}`}
             >
               <div className="memos-record__tbody-row--td">{name}</div>
               <div className="memos-record__tbody-row--td">{message}</div>
-              <div className="memos-record__tbody-row--td">{sender_address}</div>
+              <div className="memos-record__tbody-row--td">
+                {sender_address}
+              </div>
             </div>
           );
         })}
