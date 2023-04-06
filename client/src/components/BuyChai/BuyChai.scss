@@ -1,6 +1,14 @@
 .buychai--container {
   .form__div--container {
     margin: 0 auto;
+    border: 1px solid #c7c7c7;
+    border-radius: 15px;
+    padding: 5px;
+    background-color: #fafafa;
+
+    &:hover {
+      box-shadow: 0px 50px #c7c7c7;
+    }
 
     display: flex;
     flex-direction: column;
@@ -32,6 +40,7 @@
   }
 
   .form__field__input {
+    background-color: #ffffff;
     border: 1px solid #e5e5e5;
     border-radius: 10px;
     height: 32px;
@@ -43,7 +52,15 @@
     }
   }
 
+  .form__field__input--error {
+    font-size: 12px;
+    line-height: 18px;
+    color: #ff3300;
+    padding-left: 5px;
+  }
+
   .form__field__textarea {
+    background-color: #ffffff;
     border: 1px solid #e5e5e5;
     border-radius: 10px;
     width: 100%;
@@ -55,8 +72,8 @@
   }
 
   .form__field__button--submit {
-    height: 50px;
-    width: calc(100% - 20px);
+    height: 40px;
+    width: 99%;
     margin: 0px auto;
     border-radius: 25px;
 

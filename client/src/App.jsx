@@ -27,11 +27,12 @@ function App() {
           });
           console.log("ethers", ethers);
           console.log("ethers.providers", ethers.providers);
-
+// console.log("VITE_CHAI_CONTRACT_ADDRESS",VITE_CHAI_CONTRACT_ADDRESS);
           const web3Provider = new ethers.providers.Web3Provider(ethereum);
           const signer = web3Provider.getSigner();
           const chaiContract = new ethers.Contract(
             VITE_CHAI_CONTRACT_ADDRESS,
+            // ethers.utils.getAddress(VITE_CHAI_CONTRACT_ADDRESS),
             chai.abi,
             signer
           );
@@ -46,9 +47,9 @@ function App() {
   }, []);
   console.log("state", state);
   return (
-    <div className="App">
-      <h4>Get started with chaipilao Dapp</h4>
-<BuyChai/>
+    <div className="app--conatiner">
+      <h1 className="a">Get started with chaipilao Dapp</h1>
+      <BuyChai chaiContractInst={state} />
     </div>
   );
 }

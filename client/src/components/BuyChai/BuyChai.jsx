@@ -1,27 +1,39 @@
 import { useForm } from "react-hook-form";
+import { ethers } from "ethers";
 import "./BuyChai.scss";
 
-export const BuyChai = () => {
+export const BuyChai = ({
+  chaiContractInst: { provider, signer, chaiContract },
+}) => {
   const {
     register,
     handleSubmit,
-    setError,
     watch,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const { user_name, user_message } = data;
-    console.log("onSubmit", data);
+
+    const amount = { value: ethers.utils.parseEther("0.001") };
+    const transaction = await chaiContract.buyChai(
+      user_name,
+      user_message,
+      amount
+    );
+
+    await transaction.wait();
+    console.log("chaiContractInst", chaiContract);
+    console.log("transaction is done");
   };
 
   return (
     <section className="buychai--container">
       <div className="form__div--container">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div class="form__field--container">
+          <div className="form__field--container">
             <label
-              for="formfield--user_name"
+              htmlFor="formfield--user_name"
               className="form__field__input--label"
             >
               Name
@@ -42,11 +54,15 @@ export const BuyChai = () => {
                 },
               })}
             />
-            {errors?.user_name && <p>{errors?.user_name?.message}</p>}
+            {errors?.user_name && (
+              <p className="form__field__input--error">
+                {errors?.user_name?.message}
+              </p>
+            )}
           </div>
-          <div class="form__field--container">
+          <div className="form__field--container">
             <label
-              for="formfield--user_message"
+              htmlFor="formfield--user_message"
               className="form__field__input--label"
             >
               Message
@@ -57,7 +73,6 @@ export const BuyChai = () => {
               className="form__field__textarea"
               defaultValue=""
               {...register("user_message", {
-                required: true,
                 validate: {
                   shouldNotEmpty: (value) => {
                     const emptyCheck =
@@ -65,14 +80,18 @@ export const BuyChai = () => {
                         ? false
                         : true;
 
-                    return emptyCheck || "message is mandatory";
+                    return emptyCheck || "Message is mandatory";
                   },
                 },
               })}
             />
-            {errors?.user_message && <p>{errors?.user_message?.message}</p>}
+            {errors?.user_message && (
+              <p className="form__field__input--error">
+                {errors?.user_message?.message}
+              </p>
+            )}
           </div>
-          <div class="form__field--container">
+          <div className="form__field--container">
             <input
               type="submit"
               className="form__field__button--submit"
