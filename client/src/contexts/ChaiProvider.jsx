@@ -52,16 +52,6 @@ const ChaiProvider = ({ children }) => {
 
         setWalletState({ provider: web3Provider, signer, chaiContract });
         console.log("walletState", walletState);
-        // const provider = new ethers.providers.Web3Provider(ethereum);
-        // const signer = provider.getSigner();
-        // const chaiContract = new ethers.Contract(
-        //   VITE_CHAI_CONTRACT_ADDRESS,
-        //   chai.abi,
-        //   signer
-        // );
-
-        // setWalletState({ provider, signer, chaiContract });
-        // console.log("walletState", walletState);
         fetchDonationsList();
       } catch (error) {
         console.log("Error", error);

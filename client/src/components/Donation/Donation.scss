@@ -1,8 +1,8 @@
-.memos--container {
+.donation--container {
   width: 80%;
   margin: 0px auto;
 
-  .memos-record--container {
+  .donation-record--container {
     width: 100%;
 
     display: flex;
@@ -10,8 +10,8 @@
     justify-content: flex-start;
     align-items: flex-start;
   }
-  .memos-record__thead--row,
-  .memos-record__tbody--row {
+  .donation-record__thead--row,
+  .donation-record__tbody--row {
     width: 100%;
 
     display: flex;
@@ -23,11 +23,11 @@
     gap: 8px;
   }
 
-  .memos-record__thead--row {
+  .donation-record__thead--row {
     background-color: #ededed;
   }
 
-  .memos-record__tbody--row {
+  .donation-record__tbody--row {
     min-height: 40px;
     margin-bottom: 8px;
     &:nth-child(2n) {
@@ -39,7 +39,7 @@
     }
   }
 
-  .memos-record__thead-row--th {
+  .donation-record__thead-row--th {
     font-weight: bold;
     font-size: 20px;
     line-height: 30px;
@@ -57,7 +57,7 @@
     }
   }
 
-  .memos-record__tbody-row--td {
+  .donation-record__tbody-row--td {
     font-size: 16px;
     line-height: 24px;
     padding-left: 5px;

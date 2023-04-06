@@ -4,7 +4,7 @@ import "./App.scss";
 import { ChaiContext } from "./contexts/ChaiProvider.jsx";
 
 import { BuyChai } from "./components/BuyChai/BuyChai.jsx";
-import { Memos } from "./components/Memos/Memos.jsx";
+import { Donation } from "./components/Donation/Donation.jsx";
 
 function App() {
   const { checkUserLoginStatus, connectWallet } = useContext(ChaiContext);
@@ -18,7 +18,7 @@ function App() {
         <button onClick={() => connectWallet()}>Connect wallet</button>
       )}
       <BuyChai />
-      <Memos />
+      <Donation />
     </div>
   );
 }
