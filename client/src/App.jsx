@@ -46,8 +46,9 @@ function App() {
   return (
     <div className="app--conatiner">
       <h1 className="a">Get started with chaipilao Dapp</h1>
-      {/* <BuyChai chaiContractInst={state} /> */}
-      <Memos chaiContractInst={state} />
+      
+      {/* {state.chaiContract && <BuyChai chaiContractInst={state} />} */}
+      {state.chaiContract && <Memos chaiContractInst={state} />}
     </div>
   );
 }
