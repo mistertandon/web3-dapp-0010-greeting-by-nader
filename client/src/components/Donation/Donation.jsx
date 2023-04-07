@@ -2,6 +2,7 @@ import { useEffect, useContext } from "react";
 import "./Donation.scss";
 import { ChaiContext } from "../../contexts/ChaiProvider";
 import { WalletContext } from "../../contexts/WalletProvider";
+import Navigation from "../Navigation/Navigation";
 
 export const Donation = () => {
   const { donationList, fetchDonationsList } = useContext(ChaiContext);
@@ -16,6 +17,7 @@ export const Donation = () => {
   return (
     <section className="donation--container">
       <h4>Memo list</h4>
+      <Navigation />
       <button onClick={() => fetchDonationsList()}>fetch donation</button>
       <section className="donation-record--container">
         <div className="donation-record__thead--row">

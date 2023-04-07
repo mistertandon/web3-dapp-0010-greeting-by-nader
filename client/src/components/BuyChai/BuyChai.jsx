@@ -4,6 +4,7 @@ import { ethers } from "ethers";
 import { WalletContext } from "../../contexts/WalletProvider.jsx";
 
 import "./BuyChai.scss";
+import Navigation from "../Navigation/Navigation.jsx";
 
 export const BuyChai = () => {
   const {
@@ -34,6 +35,7 @@ export const BuyChai = () => {
 
   return (
     <section className="buychai--container">
+      <Navigation parentCss={{ justifyContent: "center" }} />
       <div className="form__div--container">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="form__field--container">

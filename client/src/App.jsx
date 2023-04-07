@@ -1,10 +1,9 @@
 import { useContext } from "react";
+// import { Link } from "react-router-dom";
 import "./index.scss";
 import "./App.scss";
 import { WalletContext } from "./contexts/WalletProvider.jsx";
-
-import { BuyChai } from "./components/BuyChai/BuyChai.jsx";
-import { Donation } from "./components/Donation/Donation.jsx";
+import Navigation from "./components/Navigation/Navigation.jsx";
 
 function App() {
   const { connectWallet, checkUserLoginStatus } = useContext(WalletContext);
@@ -17,8 +16,20 @@ function App() {
       {!userLoginStatus && (
         <button onClick={() => connectWallet()}>Connect wallet</button>
       )}
-      <BuyChai />
-      <Donation />
+      <Navigation parentCss={{ justifyContent: "center" }} />
+      {/* {userLoginStatus && (
+        <section class="routes-section--container">
+          <div class="routes-section__link">
+            <Link to="/">Home</Link>
+          </div>
+          <div class="routes-section__link">
+            <Link to="/buy-chai">Buy Chai</Link>
+          </div>
+          <div class="routes-section__link">
+            <Link to="/donation">Donation</Link>
+          </div>
+        </section>
+      )} */}
     </div>
   );
 }

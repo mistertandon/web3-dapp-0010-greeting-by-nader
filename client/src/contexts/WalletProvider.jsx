@@ -50,9 +50,24 @@ const WalletProvider = ({ children }) => {
     }
   };
 
+  const logoutRequest = async () => {
+    await window.ethereum.request({
+      method: "eth_requestAccounts",
+      params: [{ eth_accounts: {} }],
+    });
+
+    setWalletState({ provider: null, signer: null, chaiContract: null });
+    return;
+  };
+
   return (
     <WalletContext.Provider
-      value={{ walletState, connectWallet, checkUserLoginStatus }}
+      value={{
+        walletState,
+        connectWallet,
+        checkUserLoginStatus,
+        logoutRequest,
+      }}
     >
       {children}
     </WalletContext.Provider>
