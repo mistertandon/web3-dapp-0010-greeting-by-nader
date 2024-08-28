@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.5.0 <0.9.0;
+pragma solidity ^0.8.10;
 
-contract chai {
+contract Chai {
     struct Memo {
         string name;
         string message;
@@ -9,20 +9,42 @@ contract chai {
         address from;
     }
 
+    event NewMemo (
+        string name,
+        string message,
+        uint256 timestamp,
+        address indexed from
+    );
+
+    event WithdrawnTips (
+        string message
+    );
+
     Memo[] memos;
     address payable owner;
 
-    constructor() {
+    constructor() payable {
         owner = payable(msg.sender);
     }
 
-    function buyChai(string memory name, string memory message) public payable {
-        require(msg.value > 0, "Please pay greater then 0");
-        owner.transfer(msg.value);
-        memos.push(Memo(name, message, block.timestamp, msg.sender));
+    receive( ) external payable{}
+
+    function buyChai(string memory _name, string memory _message) public payable {
+        require(msg.value > 0, "Can't buy coffee with 0 ETH");
+        memos.push(Memo(_name, _message, block.timestamp, msg.sender));
+        emit NewMemo(_name, _message, block.timestamp, msg.sender);
+    }
+
+    function withdrawnTips() public {
+        require(owner.send(address(this).balance));
+        emit WithdrawnTips("Balance has been withdrawn to owner address.");
     }
 
     function getMemos() public view returns (Memo[] memory) {
         return memos;
+    }
+
+    function getContractBal() public view returns (uint) {
+        return address(this).balance;
     }
 }
