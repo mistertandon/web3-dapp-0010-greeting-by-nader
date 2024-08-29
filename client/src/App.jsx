@@ -1,9 +1,9 @@
-import { useContext } from "react";
+import { useContext } from 'react';
 // import { Link } from "react-router-dom";
-import "./index.scss";
-import "./App.scss";
-import { WalletContext } from "./contexts/WalletProvider.jsx";
-import Navigation from "./components/Navigation/Navigation.jsx";
+import './index.scss';
+import './App.scss';
+import { WalletContext } from './contexts/WalletProvider.jsx';
+import Navigation from './components/Navigation/Navigation.jsx';
 
 function App() {
   const { connectWallet, checkUserLoginStatus } = useContext(WalletContext);
@@ -16,7 +16,7 @@ function App() {
       {!userLoginStatus && (
         <button onClick={() => connectWallet()}>Connect wallet</button>
       )}
-      <Navigation parentCss={{ justifyContent: "center" }} />
+      <Navigation parentCss={{ justifyContent: 'center' }} />
       {/* {userLoginStatus && (
         <section class="routes-section--container">
           <div class="routes-section__link">

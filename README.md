@@ -16,3 +16,6 @@ npx hardhat
 
 #### Faucet to get sepolia ETH/day
 https://sepoliafaucet.com/
+
+
+npm install eslint eslint-plugin-react eslint-plugin-react-hooks --save-dev

@@ -1,17 +1,17 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { ChaiProvider } from "./contexts/ChaiProvider";
-import { WalletProvider } from "./contexts/WalletProvider";
-import App from "./App";
-import { BuyChai } from "./components/BuyChai/BuyChai.jsx";
-import { Donation } from "./components/Donation/Donation.jsx";
-import { Logout } from "./components/Logout/Logout.jsx";
-import "./index.scss";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { ChaiProvider } from './contexts/ChaiProvider';
+import { WalletProvider } from './contexts/WalletProvider';
+import App from './App';
+import { BuyChai } from './components/BuyChai/BuyChai.jsx';
+import { Donation } from './components/Donation/Donation.jsx';
+import { Logout } from './components/Logout/Logout.jsx';
+import './index.scss';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: (
       <WalletProvider>
         <ChaiProvider>
@@ -21,7 +21,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/buy-chai",
+    path: '/buy-chai',
     element: (
       <WalletProvider>
         <ChaiProvider>
@@ -31,7 +31,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/donation",
+    path: '/donation',
     element: (
       <WalletProvider>
         <ChaiProvider>
@@ -41,7 +41,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/logout",
+    path: '/logout',
     element: (
       <WalletProvider>
         <ChaiProvider>
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
     ),
   },
 ]);
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router={router} />
 

@@ -1,5 +1,5 @@
-import { useState, createContext, useContext } from "react";
-import { WalletContext } from "./WalletProvider";
+import { useState, createContext, useContext } from 'react';
+import { WalletContext } from './WalletProvider';
 const ChaiContext = createContext({});
 
 const ChaiProvider = ({ children }) => {

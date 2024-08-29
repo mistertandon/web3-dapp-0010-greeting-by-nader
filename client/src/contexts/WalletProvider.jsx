@@ -1,6 +1,6 @@
-import { useState, createContext } from "react";
-import { ethers } from "ethers";
-import chai from "./../contract/chai.json";
+import { useState, createContext } from 'react';
+import { ethers } from 'ethers';
+import chai from './../contract/chai.json';
 
 const VITE_CHAI_CONTRACT_ADDRESS = import.meta.env.VITE_CHAI_CONTRACT_ADDRESS;
 
@@ -31,7 +31,7 @@ const WalletProvider = ({ children }) => {
         const { ethereum } = window;
 
         const account = await ethereum.request({
-          method: "eth_requestAccounts",
+          method: 'eth_requestAccounts',
         });
 
         const web3Provider = new ethers.providers.Web3Provider(ethereum);
@@ -43,16 +43,16 @@ const WalletProvider = ({ children }) => {
         );
 
         setWalletState({ provider: web3Provider, signer, chaiContract });
-        console.log("walletState", walletState);
+        console.log('walletState', walletState);
       } catch (error) {
-        console.log("Error", error);
+        console.log('Error', error);
       }
     }
   };
 
   const logoutRequest = async () => {
     await window.ethereum.request({
-      method: "eth_requestAccounts",
+      method: 'eth_requestAccounts',
       params: [{ eth_accounts: {} }],
     });
 

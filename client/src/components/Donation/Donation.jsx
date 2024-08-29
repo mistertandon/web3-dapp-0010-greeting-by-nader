@@ -1,8 +1,8 @@
-import { useEffect, useContext } from "react";
-import "./Donation.scss";
-import { ChaiContext } from "../../contexts/ChaiProvider";
-import { WalletContext } from "../../contexts/WalletProvider";
-import Navigation from "../Navigation/Navigation";
+import { useEffect, useContext } from 'react';
+import './Donation.scss';
+import { ChaiContext } from '../../contexts/ChaiProvider';
+import { WalletContext } from '../../contexts/WalletProvider';
+import Navigation from '../Navigation/Navigation';
 
 export const Donation = () => {
   const { donationList, fetchDonationsList } = useContext(ChaiContext);
@@ -28,8 +28,8 @@ export const Donation = () => {
         {donationList.map(([name, message, , sender_address], index) => {
           return (
             <div
-              className="donation-record__tbody--row"
               key={`${sender_address}_${index}`}
+              className="donation-record__tbody--row"
             >
               <div className="donation-record__tbody-row--td">{name}</div>
               <div className="donation-record__tbody-row--td">{message}</div>

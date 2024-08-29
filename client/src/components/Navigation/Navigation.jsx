@@ -1,7 +1,7 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
-import { WalletContext } from "./../../contexts/WalletProvider.jsx";
-import "./Navigation.scss";
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { WalletContext } from './../../contexts/WalletProvider.jsx';
+import './Navigation.scss';
 
 const Navigation = ({ parentCss = {} }) => {
   const { checkUserLoginStatus } = useContext(WalletContext);

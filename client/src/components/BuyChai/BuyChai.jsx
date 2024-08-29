@@ -1,10 +1,10 @@
-import { useContext } from "react";
-import { useForm } from "react-hook-form";
-import { ethers } from "ethers";
-import { WalletContext } from "../../contexts/WalletProvider.jsx";
+import { useContext } from 'react';
+import { useForm } from 'react-hook-form';
+import { ethers } from 'ethers';
+import { WalletContext } from '../../contexts/WalletProvider.jsx';
 
-import "./BuyChai.scss";
-import Navigation from "../Navigation/Navigation.jsx";
+import './BuyChai.scss';
+import Navigation from '../Navigation/Navigation.jsx';
 
 export const BuyChai = () => {
   const {
@@ -21,7 +21,7 @@ export const BuyChai = () => {
   const onSubmit = async (data) => {
     const { user_name, user_message } = data;
 
-    const amount = { value: ethers.utils.parseEther("0.001") };
+    const amount = { value: ethers.utils.parseEther('0.001') };
     const transaction = await chaiContract.buyChai(
       user_name,
       user_message,
@@ -29,34 +29,34 @@ export const BuyChai = () => {
     );
 
     await transaction.wait();
-    console.log("chaiContractInst", chaiContract);
-    console.log("transaction is done");
+    console.log('chaiContractInst', chaiContract);
+    console.log('transaction is done');
   };
 
   return (
     <section className="buychai--container">
-      <Navigation parentCss={{ justifyContent: "center" }} />
+      <Navigation parentCss={{ justifyContent: 'center' }} />
       <div className="form__div--container">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="form__field--container">
             <label
-              htmlFor="formfield--user_name"
               className="form__field__input--label"
+              htmlFor="formfield--user_name"
             >
               Name
             </label>
             <input
-              id="formfield--user_name"
               className="form__field__input"
-              {...register("user_name", {
+              id="formfield--user_name"
+              {...register('user_name', {
                 validate: {
                   shouldNotEmpty: (value) => {
                     const emptyCheck =
-                      typeof value === "undefined" || value === ""
+                      typeof value === 'undefined' || value === ''
                         ? false
                         : true;
 
-                    return emptyCheck || "User name is mandatory";
+                    return emptyCheck || 'User name is mandatory';
                   },
                 },
               })}
@@ -69,25 +69,25 @@ export const BuyChai = () => {
           </div>
           <div className="form__field--container">
             <label
-              htmlFor="formfield--user_message"
               className="form__field__input--label"
+              htmlFor="formfield--user_message"
             >
               Message
             </label>
             <textarea
-              id="formfield--user_message"
-              rows={"4"}
               className="form__field__textarea"
               defaultValue=""
-              {...register("user_message", {
+              id="formfield--user_message"
+              rows={'4'}
+              {...register('user_message', {
                 validate: {
                   shouldNotEmpty: (value) => {
                     const emptyCheck =
-                      typeof value === "undefined" || value === ""
+                      typeof value === 'undefined' || value === ''
                         ? false
                         : true;
 
-                    return emptyCheck || "Message is mandatory";
+                    return emptyCheck || 'Message is mandatory';
                   },
                 },
               })}
@@ -100,8 +100,8 @@ export const BuyChai = () => {
           </div>
           <div className="form__field--container">
             <input
-              type="submit"
               className="form__field__button--submit"
+              type="submit"
             />
           </div>
         </form>
